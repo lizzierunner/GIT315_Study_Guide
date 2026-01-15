@@ -1,0 +1,106 @@
+# 🎬 GIT 315 Study App - Digital Video Production
+
+An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - Module 1 (Chapters 1 & 2)
+
+## ✨ Features
+
+### 🎨 ADHD-Friendly Design
+- **Colorful gradients and animations** - Visual engagement
+- **Bite-sized information chunks** - No overwhelming text walls
+- **Instant feedback and rewards** - Stay motivated!
+- **Interactive everything** - Click, flip, and engage
+- **Progress tracking** - See your improvement in real-time
+
+### 📚 Three Study Modes
+
+1. **🃏 Flashcards Mode**
+   - 27 comprehensive flashcards
+   - Click to flip and reveal answers
+   - Mark cards as "knew it" or "still learning"
+   - Visual progress bar
+
+2. **❓ Quiz Mode**
+   - 18 multiple-choice questions
+   - Instant feedback with explanations
+   - Track your accuracy percentage
+   - Celebrate correct answers!
+
+3. **📖 Quick Topics**
+   - 15 quick-reference topic summaries
+   - Perfect for last-minute review
+   - Organized by key concepts
+
+### 📊 Progress Tracking
+- **Cards Studied Counter** - Track your study session
+- **Accuracy Percentage** - Monitor your understanding
+- **Streak Tracker** - Build momentum with consecutive correct answers
+- **Celebration Animations** - Visual rewards for achievements
+
+## 📖 Content Covered
+
+### Key Topics
+- **Production Stages** - Preproduction, Production, Postproduction
+- **Three S's Rule** - Straight, Steady, Smooth
+- **Lighting Techniques** - Three-point lighting, fixing backlighting
+- **Composition** - Rule of thirds, framing, headroom
+- **Shot Types** - Wide, medium, close-up, extreme close-up
+- **Camera Settings** - Frame rate, white balance, depth of field
+- **Audio & Sound Design** - Recording quality, sound design principles
+- **Editing Principles** - Continuity, 180-degree rule, pacing
+- **Technical Specs** - Aspect ratios, codecs, resolution
+- **Professional Workflow** - Shot lists, storyboards, scripts
+
+## 🚀 How to Use
+
+1. **Open `index.html` in any web browser**
+2. **Choose your study mode** - Flashcards, Quiz, or Quick Topics
+3. **Start studying!** - Interactive and engaging
+4. **Track your progress** - Watch your stats improve
+
+## 💡 Study Tips
+
+- **Mix it up** - Use different modes to keep engaged
+- **Take breaks** - The Pomodoro technique works great!
+- **Build streaks** - Try to answer multiple questions correctly in a row
+- **Review regularly** - Spaced repetition helps retention
+- **Don't chase perfection** - As the app teaches: films are never truly "finished"!
+
+## 🎯 Perfect For
+
+- Visual learners
+- Students with ADHD
+- Anyone who needs engaging study materials
+- Quick review sessions
+- Long study sessions with variety
+- Mobile or desktop learning
+
+## 🛠️ Technical Details
+
+- **Pure HTML/CSS/JavaScript** - No dependencies needed
+- **Responsive design** - Works on desktop, tablet, and mobile
+- **Offline capable** - No internet required after download
+- **Lightweight** - Fast loading and smooth performance
+
+## 📱 Mobile Friendly
+
+The app is fully responsive and works great on:
+- 📱 Smartphones
+- 📱 Tablets
+- 💻 Laptops
+- 🖥️ Desktop computers
+
+## 🎓 Course Information
+
+**Course**: GIT 315 - Digital Video Techniques  
+**Module**: 1 (Chapters 1 & 2)  
+**Content Source**: Study guides, Quizlet sets, and course materials
+
+## 📄 License
+
+Created for educational purposes for GIT 315 students.
+
+---
+
+**Made with 💜 for effective and enjoyable studying!**
+
+*Remember: You've got this! 🌟*
