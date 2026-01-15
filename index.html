@@ -374,7 +374,7 @@
     <div class="container">
         <header>
             <h1>🎬 GIT 315: Digital Video Techniques</h1>
-            <div class="subtitle">Module 1 Study App - Chapters 1 & 2</div>
+            <div class="subtitle">Module 1 Study App - Chapters 1 & 2 + Adobe Premiere Pro</div>
         </header>
 
         <div class="stats">
@@ -523,6 +523,50 @@
                 {
                     front: "What advice is given to filmmakers about perfection?",
                     back: "Remember: Movies are never truly FINISHED!\n\nDon't spend too much time chasing perfection. Set deadlines and move forward. Done is better than perfect!"
+                },
+                {
+                    front: "What is a nonlinear editor (NLE)?",
+                    back: "An NLE like Premiere Pro allows you to:\n• Edit any part of your project in ANY ORDER\n• Make changes without affecting original media\n• Jump to any moment instantly (no rewinding)\n• Rearrange, trim, and modify clips freely\n\nLike a word processor for video!"
+                },
+                {
+                    front: "What are the 8 steps of the Standard Digital Video Workflow?",
+                    back: "1. ACQUIRE media (record footage)\n2. INGEST media (import & backup)\n3. ORGANIZE clips (bins, labels, metadata)\n4. CREATE sequence (build timeline)\n5. ADD transitions & effects\n6. ADD titles, graphics & captions\n7. ADJUST audio mix\n8. OUTPUT (export final video)"
+                },
+                {
+                    front: "What professional video formats does Premiere Pro support?",
+                    back: "• ProRes & DNxHR (editing codecs)\n• XAVC (Sony professional)\n• DSLR footage (Canon, Nikon, etc.)\n• RAW formats: RED, ARRI, Sony, Canon, Blackmagic\n\nRAW formats allow greater flexibility in post!"
+                },
+                {
+                    front: "What's the difference between INSERT and OVERWRITE edits?",
+                    back: "INSERT: Pushes existing clips forward to make room\nOVERWRITE: Replaces existing content\n\nThink: Insert = add new, Overwrite = replace old"
+                },
+                {
+                    front: "What is the Essential Sound Panel used for?",
+                    back: "Audio improvement toolkit:\n• Categorize audio (dialogue, music, SFX, ambience)\n• Apply presets for each type\n• Noise reduction and EQ\n• Automatic loudness normalization\n• Simplified mixing controls"
+                },
+                {
+                    front: "What is the Lumetri Color Panel?",
+                    back: "Color correction and grading toolset:\n• White balance adjustment\n• Exposure and contrast control\n• Match shots for consistency\n• Use scopes for accuracy (waveform, vectorscope)\n• Apply creative color grades"
+                },
+                {
+                    front: "What are Motion Graphics Templates (MOGRTs)?",
+                    back: "Pre-designed animated graphics that you can:\n• Customize text and colors\n• Import from After Effects\n• Use from Essential Graphics panel\n• Apply professional animations without creating from scratch\n• Save time on titles and lower thirds!"
+                },
+                {
+                    front: "What are the key H.264 export settings to know?",
+                    back: "H.264 is the most common delivery codec:\n• Choose correct PRESET (YouTube, Vimeo, etc.)\n• Set target BITRATE (higher = better quality, larger file)\n• Match RESOLUTION to your needs (1080p, 4K)\n• Use Media Encoder for batch exports\n• VBR (Variable Bit Rate) recommended"
+                },
+                {
+                    front: "How do you avoid broken workflows in Premiere?",
+                    back: "Project Management Best Practices:\n• Save project versions properly\n• Keep original media organized\n• Use Project Manager to consolidate\n• Relink missing media when needed\n• Archive projects before deleting\n• Backup regularly!"
+                },
+                {
+                    front: "What's the purpose of using keyframes?",
+                    back: "Keyframes control change over time:\n• Motion (position, scale, rotation)\n• Opacity (fades in/out)\n• Effects parameters\n• Audio levels\n\nSet keyframes at START and END points - Premiere animates between!"
+                },
+                {
+                    front: "What do video scopes help you do?",
+                    back: "Scopes provide objective color/exposure data:\n• WAVEFORM: Check brightness levels (0-100 IRE)\n• VECTORSCOPE: Check color accuracy & saturation\n• HISTOGRAM: Overall exposure distribution\n• PARADE: RGB channel levels\n\nDon't rely on your monitor alone!"
                 }
             ],
             quizQuestions: [
@@ -633,6 +677,72 @@
                     options: ["Take your time perfecting everything", "Movies are never truly finished", "Always reshoot scenes", "Edit multiple times"],
                     correct: 1,
                     explanation: "Remember that movies are never truly finished - avoid spending too much time chasing perfection!"
+                },
+                {
+                    question: "What does NLE stand for in video editing?",
+                    options: ["New Level Editor", "Nonlinear Editor", "Next Line Effect", "Non-Lossless Encoder"],
+                    correct: 1,
+                    explanation: "NLE (Nonlinear Editor) allows you to edit any part of your project in any order without affecting original media."
+                },
+                {
+                    question: "What is the FIRST step in the standard digital video workflow?",
+                    options: ["Import media", "Acquire media", "Organize clips", "Create sequence"],
+                    correct: 1,
+                    explanation: "ACQUIRE media is the first step - recording footage or collecting assets before anything else."
+                },
+                {
+                    question: "What's the difference between INSERT and OVERWRITE edits?",
+                    options: ["No difference", "Insert pushes clips forward; Overwrite replaces", "Insert deletes; Overwrite adds", "Insert is faster"],
+                    correct: 1,
+                    explanation: "INSERT pushes existing clips forward to make room, while OVERWRITE replaces existing content."
+                },
+                {
+                    question: "Which panel in Premiere Pro is used for audio improvement?",
+                    options: ["Effects Panel", "Essential Graphics", "Essential Sound Panel", "Audio Mixer"],
+                    correct: 2,
+                    explanation: "The Essential Sound Panel provides tools for noise reduction, EQ, and categorizing audio types."
+                },
+                {
+                    question: "What is the Lumetri Color Panel used for?",
+                    options: ["Audio mixing", "Color correction and grading", "Adding titles", "Exporting video"],
+                    correct: 1,
+                    explanation: "Lumetri Color Panel is used for color correction, grading, white balance, and matching shots."
+                },
+                {
+                    question: "What does MOGRT stand for?",
+                    options: ["Motion Graphics Template", "More Graphics Text", "Master Output Graphics", "Modern Graph Tool"],
+                    correct: 0,
+                    explanation: "MOGRT = Motion Graphics Template - pre-designed animated graphics you can customize."
+                },
+                {
+                    question: "What is H.264 primarily used for?",
+                    options: ["Editing codec", "Delivery/export codec", "Audio format", "Project file format"],
+                    correct: 1,
+                    explanation: "H.264 is the most common codec for delivering/exporting final videos to YouTube, Vimeo, etc."
+                },
+                {
+                    question: "What do keyframes control in Premiere Pro?",
+                    options: ["Only audio", "Change over time (motion, effects, opacity)", "Project settings", "Import settings"],
+                    correct: 1,
+                    explanation: "Keyframes control how properties change over time - motion, opacity, effects, audio levels, etc."
+                },
+                {
+                    question: "Which scope helps check color accuracy and saturation?",
+                    options: ["Waveform", "Vectorscope", "Histogram", "Timeline"],
+                    correct: 1,
+                    explanation: "The VECTORSCOPE displays color accuracy and saturation, helping ensure proper color balance."
+                },
+                {
+                    question: "What is GPU acceleration in Premiere Pro?",
+                    options: ["A plugin", "Using graphics card to improve performance", "Audio processing", "Export preset"],
+                    correct: 1,
+                    explanation: "GPU acceleration uses your graphics card to improve playback and rendering performance."
+                },
+                {
+                    question: "What should you do to avoid broken workflows?",
+                    options: ["Delete old files", "Save versions & backup regularly", "Use only one drive", "Never rename files"],
+                    correct: 1,
+                    explanation: "Save project versions properly, backup regularly, and keep media organized to avoid broken workflows."
                 }
             ],
             topics: [
@@ -695,6 +805,66 @@
                 {
                     title: "🎯 Pre-Production Planning",
                     description: "Script, storyboard, shot list, location scout, equipment check. Planning is 50% of success! Good prep ensures smooth production and you don't miss critical shots."
+                },
+                {
+                    title: "🎬 Nonlinear Editing (NLE)",
+                    description: "Premiere Pro lets you edit ANY part in ANY order without permanently changing original media. Jump instantly to any moment, rearrange clips freely, and revise like a word processor!"
+                },
+                {
+                    title: "📥 Digital Video Workflow",
+                    description: "8 Steps: Acquire → Ingest → Organize → Create Sequence → Add Effects/Transitions → Add Graphics → Mix Audio → Output. Follow this workflow for professional results!"
+                },
+                {
+                    title: "🎞️ Professional Formats",
+                    description: "Premiere supports ProRes, DNxHR, XAVC, DSLR footage, and RAW (RED, ARRI, Sony, Canon, Blackmagic). RAW offers maximum flexibility for color and exposure adjustments!"
+                },
+                {
+                    title: "✂️ Insert vs Overwrite Edits",
+                    description: "INSERT: Pushes clips forward, makes room. OVERWRITE: Replaces existing content. Master these two edit types for efficient timeline editing!"
+                },
+                {
+                    title: "🔊 Essential Sound Panel",
+                    description: "Categorize audio as dialogue, music, SFX, or ambience. Apply presets, reduce noise, use EQ, normalize loudness automatically. Makes audio mixing easier!"
+                },
+                {
+                    title: "🎨 Lumetri Color Panel",
+                    description: "Color correction & grading HQ: Adjust white balance, exposure, contrast. Match shots for consistency. Use scopes (waveform, vectorscope) for accurate color work!"
+                },
+                {
+                    title: "⚡ Keyframe Animation",
+                    description: "Control change over time! Set keyframes for motion (position, scale, rotation), opacity, effects, and audio. Premiere animates smoothly between your keyframe points!"
+                },
+                {
+                    title: "📊 Video Scopes",
+                    description: "Don't trust your monitor alone! WAVEFORM: brightness levels. VECTORSCOPE: color accuracy. HISTOGRAM: exposure distribution. PARADE: RGB channels. Objective data = better results!"
+                },
+                {
+                    title: "📦 Motion Graphics Templates (MOGRTs)",
+                    description: "Pre-designed animated graphics from After Effects! Customize text, colors, and properties. Found in Essential Graphics panel. Professional animations without starting from scratch!"
+                },
+                {
+                    title: "💾 H.264 Export Settings",
+                    description: "Most common delivery codec! Choose preset (YouTube, Vimeo), set bitrate (quality vs size), match resolution (1080p/4K). Use VBR (Variable Bit Rate) for best results!"
+                },
+                {
+                    title: "🛠️ Project Management",
+                    description: "Save versions properly, keep media organized, use Project Manager to consolidate, relink missing media, archive before deleting. BACKUP REGULARLY to avoid disasters!"
+                },
+                {
+                    title: "⚙️ GPU Acceleration",
+                    description: "Uses your graphics card to speed up playback and rendering! Enable in Project Settings. Makes working with effects, 4K, and multiple layers much smoother!"
+                },
+                {
+                    title: "🎥 Multicamera Editing",
+                    description: "Sync and edit footage from multiple cameras easily! Premiere automatically syncs based on audio or timecode. Switch between angles in real-time during playback!"
+                },
+                {
+                    title: "📐 Reframing for Social Media",
+                    description: "Auto Reframe feature adapts videos for different aspect ratios! Convert widescreen (16:9) to vertical (9:16) for Instagram/TikTok or square (1:1) for feeds. AI tracks action automatically!"
+                },
+                {
+                    title: "🌐 360° & VR Workflows",
+                    description: "Premiere supports immersive video editing! Work with 360° footage, add graphics and effects in 3D space, preview with VR headsets. Specialized tools for immersive storytelling!"
                 }
             ]
         };

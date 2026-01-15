@@ -1,6 +1,6 @@
 # 🎬 GIT 315 Study App - Digital Video Production
 
-An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - Module 1 (Chapters 1 & 2)
+An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - Module 1 (Chapters 1 & 2) + Adobe Premiere Pro
 
 ## ✨ Features
 
@@ -14,19 +14,19 @@ An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - 
 ### 📚 Three Study Modes
 
 1. **🃏 Flashcards Mode**
-   - 27 comprehensive flashcards
+   - 39 comprehensive flashcards (27 original + 12 Premiere Pro)
    - Click to flip and reveal answers
    - Mark cards as "knew it" or "still learning"
    - Visual progress bar
 
 2. **❓ Quiz Mode**
-   - 18 multiple-choice questions
+   - 30 multiple-choice questions (18 original + 12 Premiere Pro)
    - Instant feedback with explanations
    - Track your accuracy percentage
    - Celebrate correct answers!
 
 3. **📖 Quick Topics**
-   - 15 quick-reference topic summaries
+   - 31 quick-reference topic summaries (15 original + 16 Premiere Pro)
    - Perfect for last-minute review
    - Organized by key concepts
 
@@ -38,7 +38,7 @@ An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - 
 
 ## 📖 Content Covered
 
-### Key Topics
+### Digital Video Fundamentals (Chapters 1-2)
 - **Production Stages** - Preproduction, Production, Postproduction
 - **Three S's Rule** - Straight, Steady, Smooth
 - **Lighting Techniques** - Three-point lighting, fixing backlighting
@@ -49,6 +49,19 @@ An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - 
 - **Editing Principles** - Continuity, 180-degree rule, pacing
 - **Technical Specs** - Aspect ratios, codecs, resolution
 - **Professional Workflow** - Shot lists, storyboards, scripts
+
+### Adobe Premiere Pro (Chapters 1-17)
+- **Nonlinear Editing** - NLE concepts and workflows
+- **Project Setup** - Workspace, panels, and project settings
+- **Importing & Organizing** - Media management, bins, metadata
+- **Timeline Editing** - Insert vs overwrite, trimming tools, three-point editing
+- **Motion & Effects** - Keyframes, transitions, adjustment layers
+- **Audio Editing** - Essential Sound panel, mixing, noise reduction
+- **Color Correction** - Lumetri Color panel, scopes, matching shots
+- **Graphics & Titles** - Essential Graphics, MOGRTs, lower thirds
+- **Exporting** - H.264, Media Encoder, delivery formats
+- **Project Management** - Versioning, relinking, archiving
+- **Professional Features** - GPU acceleration, multicam editing, 360°/VR workflows
 
 ## 🚀 How to Use
 
