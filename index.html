@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIT 315 Module 1 Study App 🎬</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            color: #f0f0f0;
+            font-size: 1.2em;
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            min-width: 150px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .mode-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        .mode-btn {
+            background: white;
+            border: none;
+            padding: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mode-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .mode-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .mode-icon {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .study-area {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            min-height: 400px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .flashcard {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 40px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            transform-style: preserve-3d;
+            text-align: center;
+        }
+
+        .flashcard.flipped {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .flashcard-content {
+            font-size: 1.3em;
+            line-height: 1.6;
+        }
+
+        .flashcard-front {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .flashcard-back {
+            color: #34495e;
+        }
+
+        .hint {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .quiz-option {
+            background: #f8f9fa;
+            border: 3px solid #e9ecef;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .quiz-option:hover {
+            background: #e9ecef;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            animation: pulse 0.5s ease;
+        }
+
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            animation: shake 0.5s ease;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+            transition: width 0.5s ease;
+        }
+
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5em;
+            animation: celebrate 1s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .topic-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .topic-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .topic-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .topic-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .topic-description {
+            color: #34495e;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        @keyframes celebrate {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .study-area {
+                padding: 20px;
+            }
+            
+            .flashcard {
+                padding: 20px;
+                min-height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 GIT 315: Digital Video Techniques</h1>
+            <div class="subtitle">Module 1 Study App - Chapters 1 & 2</div>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="cardsStudied">0</div>
+                <div class="stat-label">Cards Studied</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="score">0%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="streak">0</div>
+                <div class="stat-label">🔥 Streak</div>
+            </div>
+        </div>
+
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="flashcards">
+                <span class="mode-icon">🃏</span>
+                Flashcards
+            </button>
+            <button class="mode-btn" data-mode="quiz">
+                <span class="mode-icon">❓</span>
+                Quiz Mode
+            </button>
+            <button class="mode-btn" data-mode="topics">
+                <span class="mode-icon">📚</span>
+                Quick Topics
+            </button>
+        </div>
+
+        <div class="study-area" id="studyArea">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Study data from the guide
+        const studyData = {
+            flashcards: [
+                {
+                    front: "What are the THREE main stages of video production?",
+                    back: "1. PREPRODUCTION - Planning phase (scripts, shot lists, storyboards)\n2. PRODUCTION - Actual filming\n3. POSTPRODUCTION - Editing, sound, final touches"
+                },
+                {
+                    front: "What is the 'Three S's Rule' in video production?",
+                    back: "STRAIGHT, STEADY, SMOOTH\n\nThese three qualities are essential for maintaining viewer engagement and creating professional-looking videos."
+                },
+                {
+                    front: "What is a shot list and why is it crucial?",
+                    back: "A detailed list of all shots needed for production.\n\nCRUCIAL because it:\n• Ensures no important scenes are overlooked\n• Organizes the filming process\n• Streamlines production efficiency"
+                },
+                {
+                    front: "What is a two-column script?",
+                    back: "A script format that separates:\n\nLEFT COLUMN: Visual directions/actions\nRIGHT COLUMN: Spoken dialogue\n\nThis helps communication among the crew and streamlines editing."
+                },
+                {
+                    front: "What is BACKLIGHTING and how do you fix it?",
+                    back: "When subjects appear too dark against bright backgrounds.\n\nSOLUTIONS:\n• Reposition subject to avoid direct backlighting\n• Add fill lights to illuminate the subject\n• Adjust exposure settings"
+                },
+                {
+                    front: "What are the THREE main technical considerations when planning video production?",
+                    back: "1. Video format (aspect ratio, resolution)\n2. Audio requirements\n3. Lighting conditions"
+                },
+                {
+                    front: "What is the standard aspect ratio for HD video?",
+                    back: "16:9 (widescreen format)\n\nThis is the most common format for modern video displays and streaming platforms."
+                },
+                {
+                    front: "Name the THREE POINT LIGHTING setup components",
+                    back: "1. KEY LIGHT - Main light source\n2. FILL LIGHT - Softens shadows\n3. BACK LIGHT - Separates subject from background"
+                },
+                {
+                    front: "What is the 'Rule of Thirds' in video composition?",
+                    back: "Divide the frame into a 3x3 grid. Place important elements along the lines or at intersection points for more dynamic, interesting shots."
+                },
+                {
+                    front: "What is 'headroom' in framing?",
+                    back: "The space between the top of a subject's head and the top of the frame. Too much = wasted space. Too little = feels cramped."
+                },
+                {
+                    front: "What does 'white balance' control?",
+                    back: "Color temperature of your video. It ensures whites appear white under different lighting conditions (daylight, tungsten, fluorescent)."
+                },
+                {
+                    front: "What is frame rate and what's the standard?",
+                    back: "Number of individual frames per second (fps).\n\nStandards:\n• 24 fps - Cinematic look\n• 30 fps - Standard video\n• 60 fps - Smooth motion/sports"
+                },
+                {
+                    front: "What is B-Roll footage?",
+                    back: "Supplemental footage used to cover edits, add visual interest, or provide context. Examples: cutaways, establishing shots, close-ups of details."
+                },
+                {
+                    front: "What are the basic shot types? (Name 5)",
+                    back: "1. WIDE/ESTABLISHING - Shows full scene\n2. MEDIUM - Waist up\n3. CLOSE-UP - Face/details\n4. EXTREME CLOSE-UP - Very tight detail\n5. OVER-THE-SHOULDER - Perspective shot"
+                },
+                {
+                    front: "What is 'depth of field'?",
+                    back: "The amount of the image that appears in focus. \n\nSHALLOW = Subject sharp, background blurry\nDEEP = Everything in focus"
+                },
+                {
+                    front: "What does 'continuity' mean in video editing?",
+                    back: "Maintaining consistent visual elements between shots (positions, props, lighting, direction) so the sequence flows naturally without jarring the viewer."
+                },
+                {
+                    front: "What is the 180-degree rule?",
+                    back: "Keep the camera on one side of an imaginary line between subjects. This maintains consistent screen direction and prevents disorientation."
+                },
+                {
+                    front: "What are 'jump cuts'?",
+                    back: "Cuts between similar shots of the same subject that create a jarring effect. Usually avoided unless used for stylistic purposes."
+                },
+                {
+                    front: "What is 'sound design' in video production?",
+                    back: "The art of creating the audio environment: dialogue, sound effects, ambient noise, and music that enhance the visual story."
+                },
+                {
+                    front: "What is 'codec' in video?",
+                    back: "A method of compressing and decompressing video files. Common codecs: H.264 (web), ProRes (editing), MP4 (distribution)."
+                },
+                {
+                    front: "What is storyboarding in preproduction?",
+                    back: "Visual planning tool that helps:\n• Visualize scenes before filming\n• Plan camera angles and movements\n• Enhance communication among crew\n• Save time during production"
+                },
+                {
+                    front: "Why does editing often take longer than expected?",
+                    back: "Filmmakers strive for perfection in every detail, leading to:\n• Over-analysis and indecision\n• Managing large amounts of footage\n• Ensuring continuity\n\nREMEMBER: Films are never truly 'finished' - set realistic deadlines!"
+                },
+                {
+                    front: "How has digital video democratized filmmaking?",
+                    back: "Digital tools are now AFFORDABLE and ACCESSIBLE, allowing:\n• Anyone to create high-quality films\n• Diverse voices and stories to be told\n• Rise of platforms like YouTube and TikTok\n• Lower production costs than traditional film"
+                },
+                {
+                    front: "What best captures the main idea of digital video today?",
+                    back: "Digital video tools are AFFORDABLE and allow almost anyone to create HIGH-QUALITY films.\n\nThis accessibility has revolutionized content creation!"
+                },
+                {
+                    front: "What activities happen mainly during POSTPRODUCTION?",
+                    back: "• Editing clips together\n• Adding music and sound effects\n• Creating titles and graphics\n• Color correction and grading\n• Final export and delivery"
+                },
+                {
+                    front: "How can you fix a backlighting problem?",
+                    back: "SOLUTIONS:\n1. Reposition the subject away from the bright window\n2. Film in shaded or evenly lit areas\n3. Add fill lights to illuminate the subject\n4. Use a reflector to bounce light onto the subject\n5. Adjust exposure settings"
+                },
+                {
+                    front: "What advice is given to filmmakers about perfection?",
+                    back: "Remember: Movies are never truly FINISHED!\n\nDon't spend too much time chasing perfection. Set deadlines and move forward. Done is better than perfect!"
+                }
+            ],
+            quizQuestions: [
+                {
+                    question: "What are the THREE main stages of video production?",
+                    options: ["Planning, Filming, Publishing", "Preproduction, Production, Postproduction", "Writing, Shooting, Editing", "Ideation, Creation, Distribution"],
+                    correct: 1,
+                    explanation: "Preproduction (planning), Production (filming), and Postproduction (editing) are the three fundamental stages."
+                },
+                {
+                    question: "What does the 'Three S's Rule' stand for?",
+                    options: ["Speed, Style, Sound", "Straight, Steady, Smooth", "Script, Shoot, Share", "Sharp, Stable, Seamless"],
+                    correct: 1,
+                    explanation: "Straight, Steady, and Smooth are essential qualities for professional video production."
+                },
+                {
+                    question: "What is the standard aspect ratio for HD video?",
+                    options: ["4:3", "16:9", "21:9", "1:1"],
+                    correct: 1,
+                    explanation: "16:9 is the widescreen standard for HD video, matching most modern displays."
+                },
+                {
+                    question: "What is a two-column script used for?",
+                    options: ["Budgeting", "Separating visuals and dialogue", "Listing actors", "Scheduling"],
+                    correct: 1,
+                    explanation: "A two-column script separates visual directions (left) from spoken dialogue (right)."
+                },
+                {
+                    question: "In three-point lighting, which light is the main source?",
+                    options: ["Back light", "Fill light", "Key light", "Rim light"],
+                    correct: 2,
+                    explanation: "The KEY LIGHT is the primary, brightest light that defines the subject."
+                },
+                {
+                    question: "What is backlighting in video production?",
+                    options: ["Light from behind the subject", "Background illumination", "Bottom lighting", "Bounced light"],
+                    correct: 0,
+                    explanation: "Backlighting occurs when the light source is behind the subject, which can make them appear too dark."
+                },
+                {
+                    question: "What does 'B-Roll' refer to?",
+                    options: ["Background music", "Supplemental footage", "Bloopers", "Behind-the-scenes"],
+                    correct: 1,
+                    explanation: "B-Roll is supplemental footage used to add visual interest and cover edits."
+                },
+                {
+                    question: "The Rule of Thirds divides the frame into how many sections?",
+                    options: ["4", "6", "9", "12"],
+                    correct: 2,
+                    explanation: "A 3x3 grid creates 9 sections, with key elements placed at intersections."
+                },
+                {
+                    question: "What frame rate gives a cinematic look?",
+                    options: ["24 fps", "30 fps", "60 fps", "120 fps"],
+                    correct: 0,
+                    explanation: "24 fps is the traditional cinema standard that creates a film-like appearance."
+                },
+                {
+                    question: "What does white balance control?",
+                    options: ["Brightness", "Contrast", "Color temperature", "Saturation"],
+                    correct: 2,
+                    explanation: "White balance adjusts color temperature to ensure accurate colors under different lighting."
+                },
+                {
+                    question: "What is 'depth of field'?",
+                    options: ["Camera angle", "Amount in focus", "Lighting intensity", "Frame rate"],
+                    correct: 1,
+                    explanation: "Depth of field refers to how much of the image appears sharp and in focus."
+                },
+                {
+                    question: "The 180-degree rule helps maintain:",
+                    options: ["Lighting consistency", "Screen direction", "Audio levels", "Color grading"],
+                    correct: 1,
+                    explanation: "The 180-degree rule keeps consistent screen direction by staying on one side of the action."
+                },
+                {
+                    question: "What type of shot shows the full scene/location?",
+                    options: ["Close-up", "Medium shot", "Wide/Establishing shot", "Extreme close-up"],
+                    correct: 2,
+                    explanation: "Wide or establishing shots show the full scene to orient the viewer."
+                },
+                {
+                    question: "Why has digital video democratized filmmaking?",
+                    options: ["It's expensive", "It requires training", "It's affordable and accessible", "It's complicated"],
+                    correct: 2,
+                    explanation: "Digital video tools are now affordable and accessible, allowing anyone to create high-quality films."
+                },
+                {
+                    question: "What is the purpose of a shot list?",
+                    options: ["Track actors", "List equipment", "Organize all needed shots", "Schedule breaks"],
+                    correct: 2,
+                    explanation: "A shot list ensures all necessary shots are captured and helps streamline the filming process."
+                },
+                {
+                    question: "Which activity happens mainly during postproduction?",
+                    options: ["Writing scripts", "Filming scenes", "Editing clips and adding music", "Location scouting"],
+                    correct: 2,
+                    explanation: "Postproduction involves editing clips together, adding music, titles, and final touches."
+                },
+                {
+                    question: "What's the BEST way to fix backlighting problems?",
+                    options: ["Increase brightness", "Reposition subject or add fill lights", "Use filters", "Change the camera"],
+                    correct: 1,
+                    explanation: "Repositioning the subject away from bright backgrounds or adding fill lights solves backlighting issues."
+                },
+                {
+                    question: "What's the key advice about perfectionism in editing?",
+                    options: ["Take your time perfecting everything", "Movies are never truly finished", "Always reshoot scenes", "Edit multiple times"],
+                    correct: 1,
+                    explanation: "Remember that movies are never truly finished - avoid spending too much time chasing perfection!"
+                }
+            ],
+            topics: [
+                {
+                    title: "� Production Stages (The Big Three!)",
+                    description: "PREPRODUCTION: Planning, scripts, shot lists, storyboards. PRODUCTION: Actually filming everything. POSTPRODUCTION: Editing, sound, color correction. Each stage is equally important!"
+                },
+                {
+                    title: "✨ Three S's Rule",
+                    description: "STRAIGHT, STEADY, SMOOTH - The golden rule for professional video! Keep your shots aligned, stable, and flowing smoothly to maintain viewer engagement."
+                },
+                {
+                    title: "📝 Shot Lists & Scripts",
+                    description: "Shot list = organized list of every shot needed. Two-column script separates visuals (left) from dialogue (right). These tools keep production organized!"
+                },
+                {
+                    title: "�🎥 Video Formats & Resolution",
+                    description: "HD video uses 16:9 aspect ratio. Resolution affects quality (720p, 1080p, 4K). Higher resolution = more detail but larger file sizes."
+                },
+                {
+                    title: "💡 Lighting Basics & Problems",
+                    description: "Three-point lighting: KEY (main), FILL (soften shadows), BACK (separation). Watch out for BACKLIGHTING - when subjects are too dark! Reposition or add fill lights."
+                },
+                {
+                    title: "📐 Composition & Framing",
+                    description: "Rule of thirds, headroom, leading lines. Composition guides viewer's eye and creates visual interest. Place key elements at intersection points!"
+                },
+                {
+                    title: "📹 Shot Types & Variety",
+                    description: "Wide (context), Medium (interaction), Close-up (emotion), Extreme close-up (detail). Mix shot types to keep viewers engaged and tell your story effectively!"
+                },
+                {
+                    title: "� Storyboarding",
+                    description: "Visual planning tool! Sketch out scenes before filming to plan angles, movements, and compositions. Saves time and enhances crew communication."
+                },
+                {
+                    title: "🔊 Audio & Sound Design",
+                    description: "Clean dialogue is critical. Use external mics when possible. Monitor audio levels. Sound design includes dialogue, effects, ambient noise, and music. Bad audio ruins good video!"
+                },
+                {
+                    title: "✂️ Editing Principles",
+                    description: "Continuity, pacing, transitions. Edit for story flow. Cut on action. Remember: films are never truly 'finished' - set realistic deadlines to avoid perfectionism!"
+                },
+                {
+                    title: "🎨 Color & White Balance",
+                    description: "White balance ensures accurate colors under different lighting. Color grading sets mood. Different light sources (daylight, tungsten, fluorescent) have different temperatures."
+                },
+                {
+                    title: "📊 Technical Specs & Codecs",
+                    description: "Frame rate (24/30/60 fps), codecs (H.264, ProRes), bitrate (quality vs. file size). Know your delivery requirements before you start!"
+                },
+                {
+                    title: "🎬 Camera Movement",
+                    description: "Pan (horizontal), Tilt (vertical), Dolly (forward/back), Zoom (lens focal length). Movement adds energy and reveals information. Always keep it STEADY and SMOOTH!"
+                },
+                {
+                    title: "🌟 Digital Revolution",
+                    description: "Digital tools democratized filmmaking! Affordable cameras and editing software mean anyone can create. YouTube, TikTok, and social media platforms have made video creation accessible to all."
+                },
+                {
+                    title: "🎯 Pre-Production Planning",
+                    description: "Script, storyboard, shot list, location scout, equipment check. Planning is 50% of success! Good prep ensures smooth production and you don't miss critical shots."
+                }
+            ]
+        };
+
+        // App state
+        let state = {
+            mode: 'flashcards',
+            currentCard: 0,
+            flipped: false,
+            cardsStudied: 0,
+            correctAnswers: 0,
+            totalAnswers: 0,
+            streak: 0,
+            currentQuiz: 0,
+            quizAnswered: false
+        };
+
+        // Initialize app
+        function init() {
+            setupModeButtons();
+            loadFlashcards();
+            updateStats();
+        }
+
+        function setupModeButtons() {
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    state.mode = btn.dataset.mode;
+                    switchMode(state.mode);
+                });
+            });
+        }
+
+        function switchMode(mode) {
+            state.flipped = false;
+            state.quizAnswered = false;
+            
+            switch(mode) {
+                case 'flashcards':
+                    loadFlashcards();
+                    break;
+                case 'quiz':
+                    loadQuiz();
+                    break;
+                case 'topics':
+                    loadTopics();
+                    break;
+            }
+        }
+
+        function loadFlashcards() {
+            const card = studyData.flashcards[state.currentCard];
+            const studyArea = document.getElementById('studyArea');
+            
+            studyArea.innerHTML = `
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${(state.currentCard / studyData.flashcards.length) * 100}%"></div>
+                </div>
+                <div class="flashcard" id="flashcard" onclick="flipCard()">
+                    <div class="flashcard-content">
+                        <div class="flashcard-front">${card.front}</div>
+                    </div>
+                    <div class="hint">💡 Click to reveal answer</div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-danger" onclick="prevCard()" ${state.currentCard === 0 ? 'disabled' : ''}>
+                        ⬅️ Previous
+                    </button>
+                    <button class="btn btn-success" onclick="markKnew()">
+                        ✅ I knew this!
+                    </button>
+                    <button class="btn btn-warning" onclick="markLearning()">
+                        📝 Still learning
+                    </button>
+                    <button class="btn btn-primary" onclick="nextCard()">
+                        Next ➡️
+                    </button>
+                </div>
+            `;
+        }
+
+        function flipCard() {
+            if (state.flipped) return;
+            
+            state.flipped = true;
+            const card = studyData.flashcards[state.currentCard];
+            const flashcard = document.getElementById('flashcard');
+            
+            flashcard.classList.add('flipped');
+            flashcard.innerHTML = `
+                <div class="flashcard-content">
+                    <div class="flashcard-back">${card.back.replace(/\n/g, '<br>')}</div>
+                </div>
+                <div class="hint">✨ Review the answer carefully</div>
+            `;
+        }
+
+        function nextCard() {
+            if (state.currentCard < studyData.flashcards.length - 1) {
+                state.currentCard++;
+                state.flipped = false;
+                loadFlashcards();
+            } else {
+                celebrate('🎉');
+                alert('🎊 Awesome! You\'ve reviewed all flashcards! Want to take the quiz or review again?');
+                state.currentCard = 0;
+                loadFlashcards();
+            }
+        }
+
+        function prevCard() {
+            if (state.currentCard > 0) {
+                state.currentCard--;
+                state.flipped = false;
+                loadFlashcards();
+            }
+        }
+
+        function markKnew() {
+            if (!state.flipped) {
+                flipCard();
+                setTimeout(() => {
+                    state.cardsStudied++;
+                    state.correctAnswers++;
+                    state.totalAnswers++;
+                    state.streak++;
+                    updateStats();
+                    celebrate('✨');
+                    nextCard();
+                }, 1500);
+            } else {
+                state.cardsStudied++;
+                state.correctAnswers++;
+                state.totalAnswers++;
+                state.streak++;
+                updateStats();
+                celebrate('✨');
+                nextCard();
+            }
+        }
+
+        function markLearning() {
+            if (!state.flipped) {
+                flipCard();
+            } else {
+                state.cardsStudied++;
+                state.totalAnswers++;
+                state.streak = 0;
+                updateStats();
+                nextCard();
+            }
+        }
+
+        function loadQuiz() {
+            if (state.currentQuiz >= studyData.quizQuestions.length) {
+                state.currentQuiz = 0;
+            }
+
+            const question = studyData.quizQuestions[state.currentQuiz];
+            const studyArea = document.getElementById('studyArea');
+            
+            studyArea.innerHTML = `
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${(state.currentQuiz / studyData.quizQuestions.length) * 100}%"></div>
+                </div>
+                <h2 style="margin-bottom: 30px; color: #2c3e50;">Question ${state.currentQuiz + 1} of ${studyData.quizQuestions.length}</h2>
+                <h3 style="margin-bottom: 30px; color: #34495e; line-height: 1.6;">${question.question}</h3>
+                <div id="quizOptions">
+                    ${question.options.map((option, index) => `
+                        <div class="quiz-option" onclick="selectAnswer(${index})">
+                            ${String.fromCharCode(65 + index)}. ${option}
+                        </div>
+                    `).join('')}
+                </div>
+                <div id="explanation" class="hidden" style="margin-top: 20px; padding: 20px; background: #e8f5e9; border-radius: 10px; color: #2e7d32;">
+                </div>
+                <div class="controls" style="margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="nextQuiz()">
+                        Next Question ➡️
+                    </button>
+                </div>
+            `;
+        }
+
+        function selectAnswer(index) {
+            if (state.quizAnswered) return;
+            
+            state.quizAnswered = true;
+            const question = studyData.quizQuestions[state.currentQuiz];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            if (index === question.correct) {
+                options[index].classList.add('correct');
+                state.correctAnswers++;
+                state.streak++;
+                celebrate('🎯');
+            } else {
+                options[index].classList.add('incorrect');
+                options[question.correct].classList.add('correct');
+                state.streak = 0;
+                celebrate('💭');
+            }
+            
+            state.totalAnswers++;
+            updateStats();
+            
+            const explanation = document.getElementById('explanation');
+            explanation.classList.remove('hidden');
+            explanation.innerHTML = `<strong>💡 Explanation:</strong> ${question.explanation}`;
+        }
+
+        function nextQuiz() {
+            state.quizAnswered = false;
+            state.currentQuiz++;
+            
+            if (state.currentQuiz >= studyData.quizQuestions.length) {
+                const percentage = Math.round((state.correctAnswers / state.totalAnswers) * 100);
+                celebrate('🎊');
+                alert(`🎉 Quiz Complete!\n\nYour Score: ${percentage}%\n${state.correctAnswers} out of ${studyData.quizQuestions.length} correct!`);
+                state.currentQuiz = 0;
+            }
+            
+            loadQuiz();
+        }
+
+        function loadTopics() {
+            const studyArea = document.getElementById('studyArea');
+            
+            studyArea.innerHTML = `
+                <h2 style="margin-bottom: 30px; color: #2c3e50; text-align: center;">📚 Quick Reference Topics</h2>
+                <div class="topic-list">
+                    ${studyData.topics.map(topic => `
+                        <div class="topic-item">
+                            <div class="topic-title">${topic.title}</div>
+                            <div class="topic-description">${topic.description}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="controls" style="margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="switchMode('flashcards')">
+                        Start Flashcards 🃏
+                    </button>
+                    <button class="btn btn-success" onclick="switchMode('quiz')">
+                        Take Quiz ❓
+                    </button>
+                </div>
+            `;
+        }
+
+        function updateStats() {
+            document.getElementById('cardsStudied').textContent = state.cardsStudied;
+            const accuracy = state.totalAnswers > 0 
+                ? Math.round((state.correctAnswers / state.totalAnswers) * 100) 
+                : 0;
+            document.getElementById('score').textContent = accuracy + '%';
+            document.getElementById('streak').textContent = state.streak;
+        }
+
+        function celebrate(emoji) {
+            const celebration = document.createElement('div');
+            celebration.className = 'celebration';
+            celebration.textContent = emoji;
+            document.body.appendChild(celebration);
+            
+            setTimeout(() => {
+                celebration.remove();
+            }, 1000);
+        }
+
+        // Initialize when page loads
+        init();
+    </script>
+</body>
+</html>
