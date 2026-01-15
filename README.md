@@ -21,13 +21,13 @@ An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - 
 ### 📚 Three Study Modes
 
 1. **🃏 Flashcards Mode**
-   - 54 comprehensive flashcards (31 original + 23 Premiere Pro)
+   - 55 comprehensive flashcards (32 original + 23 Premiere Pro)
    - Click to flip and reveal answers
    - Mark cards as "knew it" or "still learning"
    - Visual progress bar
 
 2. **❓ Quiz Mode**
-   - 45 multiple-choice questions (22 original + 23 Premiere Pro)
+   - 46 multiple-choice questions (23 original + 23 Premiere Pro)
    - Instant feedback with explanations
    - Track your accuracy percentage
    - Celebrate correct answers!
