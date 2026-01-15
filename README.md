@@ -10,6 +10,13 @@ An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - 
 - **Instant feedback and rewards** - Stay motivated!
 - **Interactive everything** - Click, flip, and engage
 - **Progress tracking** - See your improvement in real-time
+- **🔊 Sound effects** - Audio feedback for actions (toggle on/off)
+- **⏱️ Pomodoro timer** - Built-in 25-minute focus sessions
+- **🎲 Random card button** - Keep things fresh and unpredictable
+- **⌨️ Keyboard shortcuts** - Navigate with arrow keys, flip with Space/Enter, random with 'R'
+- **💬 Motivational messages** - Encouraging pop-ups every few correct answers
+- **⏰ Session timer** - Track total study time
+- **🎵 Celebration sounds** - Audio rewards for streaks and completions
 
 ### 📚 Three Study Modes
 
@@ -35,6 +42,17 @@ An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - 
 - **Accuracy Percentage** - Monitor your understanding
 - **Streak Tracker** - Build momentum with consecutive correct answers
 - **Celebration Animations** - Visual rewards for achievements
+- **Session Timer** - See how long you've been studying
+- **Audio & Visual Feedback** - Multi-sensory engagement for better focus
+
+### 🎯 ADHD-Optimized Features
+- **Focus Timer (Pomodoro)** - 25-minute focused study sessions with alerts
+- **Sound Toggle** - Turn sounds on/off based on your preference
+- **Random Card** - Jump to random flashcards/questions to keep engagement high
+- **Keyboard Navigation** - Use arrow keys (←/→), Space/Enter to flip, 'R' for random
+- **Motivational Messages** - Positive reinforcement every 3-5 correct answers
+- **No Overwhelm** - One card/question at a time with clear progress bars
+- **Instant Gratification** - Immediate feedback with sounds and animations
 
 ## 📖 Content Covered
 
@@ -80,9 +98,14 @@ An ADHD-friendly, interactive study app for GIT 315: Digital Video Techniques - 
 ## 💡 Study Tips
 
 - **Mix it up** - Use different modes to keep engaged
-- **Take breaks** - The Pomodoro technique works great!
+- **Use the Focus Timer** - Try 25-minute Pomodoro sessions
+- **Take breaks** - Rest after each focus session (5 mins)
+- **Keyboard shortcuts** - Faster navigation = better flow state
+- **Random mode** - Press 'R' or the Random button to shake things up
+- **Sound effects** - Keep them on for dopamine hits, or off if distracting
 - **Build streaks** - Try to answer multiple questions correctly in a row
 - **Review regularly** - Spaced repetition helps retention
+- **Celebrate wins** - Enjoy those motivational messages!
 - **Don't chase perfection** - As the app teaches: films are never truly "finished"!
 
 ## 🎯 Perfect For
