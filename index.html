@@ -587,6 +587,26 @@
                 {
                     front: "How can you drag a panel to its own floating panel?",
                     back: "To create a floating panel:\n\n1. Click and HOLD the panel tab\n2. DRAG it away from the docked area\n3. Release when it's floating\n\nOr: Right-click panel tab > 'Undock Panel'\n\nFloating panels are great for multi-monitor setups!"
+                },
+                {
+                    front: "What is the purpose of the Settings tab in the New Sequence dialog box?",
+                    back: "The Settings tab lets you:\n• Configure FRAME SIZE (resolution)\n• Set FRAME RATE (24, 30, 60 fps)\n• Choose PIXEL ASPECT RATIO\n• Set AUDIO settings (sample rate, channels)\n• Define timecode starting point\n\nCustomize all technical parameters for your sequence!"
+                },
+                {
+                    front: "How should you choose a sequence preset?",
+                    back: "Best practice: MATCH YOUR SOURCE FOOTAGE!\n\n• If shooting 1080p 24fps → choose 1080p 24fps preset\n• If shooting 4K 30fps → choose 4K 30fps preset\n• Premiere can auto-detect: drag footage to create new sequence\n\nMatching prevents quality loss and rendering issues!"
+                },
+                {
+                    front: "What is timecode?",
+                    back: "Timecode = Address for every frame in your video\n\nFormat: HH:MM:SS:FF (Hours:Minutes:Seconds:Frames)\nExample: 01:23:45:12\n\nUsed for:\n• Precise editing\n• Syncing audio/video\n• Collaborating with notes\n• Frame-accurate navigation"
+                },
+                {
+                    front: "How do you create a custom sequence preset?",
+                    back: "Creating custom presets:\n\n1. Create a sequence with desired settings\n2. Right-click the sequence in Project Panel\n3. Click 'Save as Preset'\n4. Name your preset\n5. It appears in New Sequence dialog for reuse\n\nPerfect for repeated workflows!"
+                },
+                {
+                    front: "How can you choose where to store temporary files (scratch disks)?",
+                    back: "Set scratch disk locations:\n\n1. Edit > Preferences > Scratch Disks (Windows)\n   OR Premiere Pro > Settings > Scratch Disks (Mac)\n2. Choose locations for:\n   • Captured Video/Audio\n   • Video/Audio Previews\n   • Project Auto Save\n\nUse FAST drives (SSD) for better performance!"
                 }
             ],
             quizQuestions: [
@@ -799,6 +819,36 @@
                     options: ["Right-click > Delete", "Drag the panel tab away from the dock", "Double-click it", "Use a keyboard shortcut"],
                     correct: 1,
                     explanation: "Click and drag the panel tab away from the docked area to create a floating panel, great for multi-monitor setups."
+                },
+                {
+                    question: "What can you configure in the Settings tab of the New Sequence dialog?",
+                    options: ["Only frame rate", "Only resolution", "Frame size, frame rate, pixel aspect ratio, and audio settings", "Only export settings"],
+                    correct: 2,
+                    explanation: "The Settings tab allows you to customize all technical parameters: resolution, frame rate, pixel aspect ratio, and audio settings."
+                },
+                {
+                    question: "How should you choose a sequence preset?",
+                    options: ["Always use the default", "Match your source footage settings", "Pick the highest resolution", "Use the smallest file size"],
+                    correct: 1,
+                    explanation: "Always match your sequence preset to your source footage to prevent quality loss and rendering issues."
+                },
+                {
+                    question: "What does timecode represent in video editing?",
+                    options: ["Export time", "An address for every frame (HH:MM:SS:FF)", "Project creation date", "Rendering speed"],
+                    correct: 1,
+                    explanation: "Timecode provides a unique address for every frame in Hours:Minutes:Seconds:Frames format (e.g., 01:23:45:12)."
+                },
+                {
+                    question: "How do you create a custom sequence preset?",
+                    options: ["You cannot create custom presets", "Right-click sequence > Save as Preset", "Export > Save Preset", "Use a plugin"],
+                    correct: 1,
+                    explanation: "Right-click a sequence in the Project Panel and select 'Save as Preset' to reuse those settings."
+                },
+                {
+                    question: "Where do you set scratch disk locations for temporary files?",
+                    options: ["Project Settings", "File > Export", "Edit > Preferences > Scratch Disks", "Window > Workspace"],
+                    correct: 2,
+                    explanation: "Edit > Preferences > Scratch Disks (Windows) or Premiere Pro > Settings > Scratch Disks (Mac) lets you choose where temporary files are stored."
                 }
             ],
             topics: [
@@ -937,6 +987,26 @@
                 {
                     title: "📌 Floating Panels",
                     description: "Undock panels for multi-monitor setups! Drag panel tabs away from the interface to create floating windows. Perfect for spreading your workspace across multiple screens!"
+                },
+                {
+                    title: "⚙️ Sequence Settings",
+                    description: "Settings tab in New Sequence dialog configures: frame size (resolution), frame rate (24/30/60fps), pixel aspect ratio, audio settings, and timecode. Customize all technical parameters!"
+                },
+                {
+                    title: "🎯 Choosing Sequence Presets",
+                    description: "MATCH YOUR FOOTAGE! Use preset that matches source resolution and frame rate. Quick tip: Drag footage to timeline - Premiere auto-creates matching sequence. Prevents quality loss!"
+                },
+                {
+                    title: "🕐 Timecode Explained",
+                    description: "Timecode = Unique address for every frame! Format: HH:MM:SS:FF (Hours:Minutes:Seconds:Frames). Example: 01:23:45:12. Essential for precise editing, syncing, and collaboration!"
+                },
+                {
+                    title: "💾 Custom Sequence Presets",
+                    description: "Save sequences as reusable presets! Create sequence with settings you need → Right-click in Project Panel → 'Save as Preset' → Name it. Perfect for consistent workflows!"
+                },
+                {
+                    title: "📂 Scratch Disks & Temp Files",
+                    description: "Choose where Premiere stores temporary files! Edit > Preferences > Scratch Disks. Set locations for previews, auto-saves, captured media. Use FAST drives (SSD) for best performance!"
                 }
             ]
         };
